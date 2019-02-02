@@ -1,7 +1,15 @@
+
+
+
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
     <%@ taglib prefix="myprefix" uri="WEB-INF/testetag.tld" %>
+    
+   
+    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,28 +18,22 @@
 </head>
 <body>
 	
-	<h1>Welcome to my JSP project</h1>
-	<%= "HELLS YEAH" %>
+	<h1>Index</h1>		
 	
-	<form action="receber-nome.jsp">
-		Login: <input type="text" id="login" name="login"> 
+	<form action="cabecalho.jsp" method="post">
 		
-		<input type="submit" value="Send"> 
-
+		<input type="text" id="nome" name="nome" value="">
+		<br/>
+		<input type="text" id="ano" name="ano" value="">
+		<br/>
+		<input type="text" id="sexo" name="sexo" value="">
+		<br/>
+		<input type="submit" value="testar"/> 
 	</form>
-	<%session.setAttribute("curso", "(aula session, modulo 9) curso de JSP"); %><br/>
 	
 	
-		
-		<%= application.getInitParameter("estado") %>
-		
-		<%@ page import="java.util.Date"%><br/>
-		<%= "(aula directivas) "+ new Date() %><br/>
-		
-		<%@ include file="pagina-include.jsp" %>
-		
-		<myprefix:minhatag/>
-		
+	
+	<br/>
 
 </body>
 </html>
