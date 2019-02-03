@@ -7,12 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	
-	<%= "NOME RECEBIDO: "+ request.getParameter("login") %><br/>
-	
-	<%= session.getAttribute("curso") %>
-	
-	
+
+<h3>Seja bem vindo ao sistema em jsp</h3>
 </body>
 </html>
