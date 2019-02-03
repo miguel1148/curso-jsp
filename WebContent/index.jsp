@@ -19,7 +19,7 @@
 </head>
 <body>
 	
-	<c:out value="${'Bem vindo ao JSTL' }"/>
+	<c:out value="${'Esta frase foi escrita em JSTL' }"/>
 
 	<p/>
 	<p/>
