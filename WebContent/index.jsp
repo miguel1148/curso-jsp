@@ -20,9 +20,6 @@
 <body>
 	
 	<c:out value="${'Esta frase foi escrita em JSTL' }"/>
-
-	<p/>
-	<p/>
 	<p/>
 	<p/>
 	
