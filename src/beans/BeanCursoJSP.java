@@ -5,9 +5,11 @@ public class BeanCursoJSP {
 	private String login;
 	private String senha;
 	
+	@Deprecated
 	public boolean validarLoginSenha(String login, String senha) {
 		if(login.equalsIgnoreCase(login) && senha.equalsIgnoreCase(senha)) {
 			return true;
+			
 		}else {
 			return false;
 		}
