@@ -1,6 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,6 +41,20 @@ public class Usuario extends HttpServlet {
 		usuario.setSenha(senha);
 		daoUsuario.salvar(usuario);
 		
+		
+		try {
+			RequestDispatcher view = request
+					.getRequestDispatcher("/cadastroUsuario.jsp");
+			request.setAttribute("usuarios", daoUsuario.listar());
+			view.forward(request, response);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +27,15 @@
 		<input type="submit" value="Salvar">
 		
 	</form>
+	
+	<table>
+		<c:forEach items="${usuarios }" var="user">
+			<tr>
+				<td> <c:out value="${user.login }"></c:out> </td>
+				<td> <c:out value="${user.senha }"></c:out> </td>	
+			</tr>
+		</c:forEach>
+	</table>
 	
 	
 </body>
