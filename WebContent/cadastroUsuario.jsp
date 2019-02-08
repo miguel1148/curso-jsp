@@ -31,7 +31,7 @@
 	<table>
 		<c:forEach items="${usuarios }" var="user">
 			<tr>
-				<td> <c:out value="${user.login }"></c:out> </td>
+				<td  style="width: 150px"><c:out value="${user.login }"></c:out> </td>
 				<td> <c:out value="${user.senha }"></c:out> </td>	
 			</tr>
 		</c:forEach>
