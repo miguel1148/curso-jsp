@@ -33,10 +33,20 @@ public class Usuario extends HttpServlet {
 
 			if (acao.equalsIgnoreCase("delete")) {
 				daoUsuario.delete(user);
-				RequestDispatcher view = request.getRequestDispatcher("/cadastroUsuario.jsp");
+				RequestDispatcher view = request
+						.getRequestDispatcher("/cadastroUsuario.jsp");
 				request.setAttribute("usuarios", daoUsuario.listar());
 				view.forward(request, response);
+			
+			}else if(acao.equalsIgnoreCase("editar")) {
+				BeanCursoJSP bean = daoUsuario.consultar(user);
+				RequestDispatcher view = request
+						.getRequestDispatcher("/cadastroUsuario.jsp");
+				request.setAttribute("user", bean);
+				view.forward(request, response);
+				
 			}
+			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -47,13 +57,20 @@ public class Usuario extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
+		String id = request.getParameter("id");
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 		
 		BeanCursoJSP usuario = new BeanCursoJSP();
+		usuario.setId(!id.isEmpty() ? Long.parseLong(id) : 0);
 		usuario.setLogin(login);
 		usuario.setSenha(senha);
-		daoUsuario.salvar(usuario);
+		
+		if(id == null || id.isEmpty()) {
+			daoUsuario.salvar(usuario);
+		}else {
+			daoUsuario.atualizar(usuario);
+		}
 		
 		
 		try {
