@@ -27,7 +27,21 @@ public class Usuario extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
      
-		doPost(request, response);
+		try {
+			String acao = request.getParameter("acao");
+			String user = request.getParameter("user");
+
+			if (acao.equalsIgnoreCase("delete")) {
+				daoUsuario.delete(user);
+				RequestDispatcher view = request.getRequestDispatcher("/cadastroUsuario.jsp");
+				request.setAttribute("usuarios", daoUsuario.listar());
+				view.forward(request, response);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
